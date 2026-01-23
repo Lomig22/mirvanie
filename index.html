@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mirvany - L'IA experte qui répond à toutes vos questions immobilières. Estimation, rentabilité, vente, acquisition, fiscalité et stratégie immobilière en temps réel.">
+    <meta name="keywords" content="IA immobilier, estimation immobilière, investissement immobilier, conseil immobilier, intelligence artificielle">
+    <meta name="author" content="Mirvany">
+    <title>Mirvany | L'expertise immobilière augmentée par l'IA</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="10" fill="url(#gradient)"/>
+                        <path d="M20 8L32 18V32H24V24H16V32H8V18L20 8Z" fill="white"/>
+                        <circle cx="20" cy="20" r="3" fill="url(#gradient)"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#4F46E5"/>
+                                <stop offset="1" stop-color="#7C3AED"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span>Mirvany</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#solution">Solution</a>
+                <a href="#features">Fonctionnalités</a>
+                <a href="#how-it-works">Comment ça marche</a>
+                <a href="#who">Pour qui</a>
+            </div>
+            <div class="nav-cta">
+                <a href="#cta-final" class="btn btn-primary">Tester l'IA</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    Intelligence Artificielle Immobilière
+                </div>
+                <h1 class="hero-title reveal">
+                    L'IA experte qui répond à <span class="gradient-text">toutes vos questions</span> immobilières
+                </h1>
+                <p class="hero-subtitle reveal">
+                    Estimation, rentabilité, vente, acquisition, fiscalité et stratégie immobilière, en temps réel.
+                </p>
+                <div class="hero-cta reveal">
+                    <a href="#cta-final" class="btn btn-primary btn-lg">
+                        <span>Tester l'IA</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#cta-final" class="btn btn-secondary btn-lg">
+                        <span>Obtenir une estimation</span>
+                    </a>
+                </div>
+                <div class="hero-trust reveal">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                        <span>Données sécurisées</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <span>Réponses instantanées</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <path d="M22 4L12 14.01l-3-3"/>
+                        </svg>
+                        <span>Expertise fiable</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <div class="hero-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="mockup-title">Mirvany Assistant</div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="chat-message chat-user">
+                            <div class="message-bubble">Quelle est la valeur de mon appartement à Paris 11ème, 65m², 2 chambres ?</div>
+                        </div>
+                        <div class="chat-message chat-ai">
+                            <div class="ai-avatar">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" fill="url(#aiGrad)"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="9" cy="10" r="1.5" fill="white"/>
+                                    <circle cx="15" cy="10" r="1.5" fill="white"/>
+                                    <defs>
+                                        <linearGradient id="aiGrad" x1="2" y1="2" x2="22" y2="22">
+                                            <stop stop-color="#4F46E5"/>
+                                            <stop offset="1" stop-color="#7C3AED"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="message-bubble">
+                                <div class="typing-indicator">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="ai-response">
+                                    <p><strong>Estimation : 485 000 € - 520 000 €</strong></p>
+                                    <p>Prix moyen au m² dans le 11ème : 10 200 €/m²</p>
+                                    <p>Votre bien se situe dans la moyenne haute du marché. Voulez-vous une analyse plus détaillée ?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Le constat</span>
+                <h2 class="section-title">L'immobilier est complexe.<br><span class="gradient-text">Les décisions coûtent cher.</span></h2>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                            <path d="M11 8v6M8 11h6"/>
+                        </svg>
+                    </div>
+                    <h3>Informations dispersées</h3>
+                    <p>Les données immobilières sont éparpillées sur des dizaines de sources, difficiles à consolider et à interpréter.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Manque de conseils fiables</h3>
+                    <p>Entre opinions biaisées et informations obsolètes, trouver un conseil objectif et actualisé est un défi.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                        </svg>
+                    </div>
+                    <h3>Risques juridiques et fiscaux</h3>
+                    <p>La réglementation évolue constamment. Une erreur peut coûter des milliers d'euros.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Mauvaises décisions d'investissement</h3>
+                    <p>Sans analyse approfondie, les investissements peuvent se transformer en pièges financiers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution-wrapper">
+                <div class="solution-content reveal">
+                    <span class="section-tag">La solution</span>
+                    <h2 class="section-title">Mirvany centralise toute l'expertise immobilière <span class="gradient-text">dans une IA</span></h2>
+                    <p class="solution-desc">Une intelligence artificielle de pointe, entraînée sur des millions de données immobilières, juridiques et fiscales. Disponible 24/7 pour répondre à toutes vos questions.</p>
+                    <div class="solution-points">
+                        <div class="solution-point">
+                            <div class="point-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                    <path d="M12 2a10 10 0 0 1 10 10"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="point-content">
+                                <h4>IA de pointe</h4>
+                                <p>Technologie avancée pour des analyses précises</p>
+                            </div>
+                        </div>
+                        <div class="solution-point">
+                            <div class="point-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="point-content">
+                                <h4>Réponses instantanées</h4>
+                                <p>Obtenez vos réponses en quelques secondes</p>
+                            </div>
+                        </div>
+                        <div class="solution-point">
+                            <div class="point-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <div class="point-content">
+                                <h4>Données sécurisées</h4>
+                                <p>Vos informations restent confidentielles</p>
+                            </div>
+                        </div>
+                        <div class="solution-point">
+                            <div class="point-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <path d="M22 4L12 14.01l-3-3"/>
+                                </svg>
+                            </div>
+                            <div class="point-content">
+                                <h4>Analyse experte</h4>
+                                <p>Expertise équivalente à des années d'expérience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-visual reveal">
+                    <div class="visual-card">
+                        <div class="visual-glow"></div>
+                        <div class="visual-content">
+                            <div class="stat-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number" data-count="98">0</span>
+                                    <span class="stat-suffix">%</span>
+                                    <span class="stat-label">Précision</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-prefix">&lt;</span>
+                                    <span class="stat-number" data-count="3">0</span>
+                                    <span class="stat-suffix">s</span>
+                                    <span class="stat-label">Temps de réponse</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" data-count="24">0</span>
+                                    <span class="stat-suffix">/7</span>
+                                    <span class="stat-label">Disponibilité</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" data-count="100">0</span>
+                                    <span class="stat-suffix">%</span>
+                                    <span class="stat-label">Confidentiel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Fonctionnalités</span>
+                <h2 class="section-title">Tout ce dont vous avez besoin<br><span class="gradient-text">pour décider en confiance</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <path d="M9 22V12h6v10"/>
+                        </svg>
+                    </div>
+                    <h3>Estimation immobilière intelligente</h3>
+                    <p>Obtenez une estimation précise de votre bien basée sur les données du marché en temps réel.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18 17V9M13 17V5M8 17v-3"/>
+                        </svg>
+                    </div>
+                    <h3>Analyse de rentabilité</h3>
+                    <p>Calculez le rendement locatif, le cash-flow et la rentabilité nette de vos investissements.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <path d="M14 2v6h6M12 11v6M9 14h6"/>
+                        </svg>
+                    </div>
+                    <h3>Conseils juridiques et fiscaux</h3>
+                    <p>Comprenez les implications légales et optimisez votre fiscalité immobilière.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Stratégies personnalisées</h3>
+                    <p>Recevez des recommandations adaptées à votre situation et vos objectifs patrimoniaux.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M2 7h20M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <h3>Budget & capacité d'achat</h3>
+                    <p>Évaluez votre capacité d'emprunt et définissez un budget réaliste pour votre projet.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Accompagnement vente & acquisition</h3>
+                    <p>Guidez chaque étape de votre transaction, de la négociation à la signature.</p>
+                    <a href="#" class="feature-link">
+                        En savoir plus
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Processus</span>
+                <h2 class="section-title">Comment ça marche ?<br><span class="gradient-text">Simple et rapide</span></h2>
+            </div>
+            <div class="steps-wrapper">
+                <div class="steps-line"></div>
+                <div class="steps-grid">
+                    <div class="step-card reveal">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M8 9h8M8 13h6"/>
+                            </svg>
+                        </div>
+                        <h3>Posez votre question</h3>
+                        <p>Décrivez votre situation ou posez directement votre question immobilière à Mirvany.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                                <path d="M8 12h.01M12 12h.01M16 12h.01"/>
+                            </svg>
+                        </div>
+                        <h3>L'IA analyse votre situation</h3>
+                        <p>Notre intelligence artificielle traite votre demande en croisant des millions de données.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <path d="M22 4L12 14.01l-3-3"/>
+                            </svg>
+                        </div>
+                        <h3>Réponse claire et actionnable</h3>
+                        <p>Recevez une réponse précise, sécurisée et immédiatement exploitable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Who Section -->
+    <section class="for-who" id="who">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Utilisateurs</span>
+                <h2 class="section-title">Pour qui est <span class="gradient-text">Mirvany</span> ?</h2>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card reveal">
+                    <div class="audience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <path d="M9 22V12h6v10"/>
+                        </svg>
+                    </div>
+                    <h3>Propriétaires</h3>
+                    <p>Estimez la valeur de votre bien, optimisez sa gestion et prenez les bonnes décisions de vente ou de location.</p>
+                    <ul class="audience-list">
+                        <li>Estimation en temps réel</li>
+                        <li>Conseils de valorisation</li>
+                        <li>Optimisation fiscale</li>
+                    </ul>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="audience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Investisseurs</h3>
+                    <p>Analysez les opportunités, calculez la rentabilité et construisez un patrimoine immobilier solide.</p>
+                    <ul class="audience-list">
+                        <li>Analyse de rentabilité</li>
+                        <li>Stratégies d'investissement</li>
+                        <li>Simulation fiscale</li>
+                    </ul>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="audience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3>Acquéreurs</h3>
+                    <p>Trouvez le bien idéal, évaluez sa valeur réelle et sécurisez votre achat immobilier.</p>
+                    <ul class="audience-list">
+                        <li>Capacité d'achat</li>
+                        <li>Analyse du marché</li>
+                        <li>Accompagnement achat</li>
+                    </ul>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="audience-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="8.5" cy="7" r="4"/>
+                            <path d="M20 8v6M23 11h-6"/>
+                        </svg>
+                    </div>
+                    <h3>Professionnels de l'immobilier</h3>
+                    <p>Gagnez en efficacité avec une IA qui répond instantanément aux questions de vos clients.</p>
+                    <ul class="audience-list">
+                        <li>Réponses instantanées</li>
+                        <li>Expertise augmentée</li>
+                        <li>Gain de temps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-wrapper">
+                <div class="trust-content reveal">
+                    <span class="section-tag">Confiance & Sécurité</span>
+                    <h2 class="section-title">Vos données sont <span class="gradient-text">entre de bonnes mains</span></h2>
+                    <p class="trust-desc">La confiance est au cœur de Mirvany. Nous avons conçu notre plateforme avec les plus hauts standards de sécurité et de confidentialité.</p>
+                </div>
+                <div class="trust-grid reveal">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <h4>Données sécurisées</h4>
+                        <p>Chiffrement de bout en bout pour toutes vos informations</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4>Confidentialité</h4>
+                        <p>Vos données ne sont jamais partagées avec des tiers</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <path d="M22 4L12 14.01l-3-3"/>
+                            </svg>
+                        </div>
+                        <h4>Expertise fiable</h4>
+                        <p>IA entraînée sur des sources vérifiées et mises à jour</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h4>Vision long terme</h4>
+                        <p>Une plateforme conçue pour évoluer avec vos besoins</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-final" id="cta-final">
+        <div class="cta-bg">
+            <div class="cta-gradient"></div>
+            <div class="cta-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Prenez de meilleures décisions immobilières <span class="gradient-text-light">dès maintenant</span></h2>
+                <p class="cta-subtitle">Rejoignez les milliers d'utilisateurs qui font confiance à Mirvany pour leurs projets immobiliers.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white btn-lg">
+                        <span>Accéder à Mirvany</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="btn btn-outline-white btn-lg">
+                        <span>Lancer mon estimation</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="url(#gradientFooter)"/>
+                                <path d="M20 8L32 18V32H24V24H16V32H8V18L20 8Z" fill="white"/>
+                                <circle cx="20" cy="20" r="3" fill="url(#gradientFooter)"/>
+                                <defs>
+                                    <linearGradient id="gradientFooter" x1="0" y1="0" x2="40" y2="40">
+                                        <stop stop-color="#4F46E5"/>
+                                        <stop offset="1" stop-color="#7C3AED"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span>Mirvany</span>
+                    </a>
+                    <p class="footer-desc">L'expertise immobilière augmentée par l'IA. Instantanée. Sécurisée. Fiable.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#how-it-works">Comment ça marche</a></li>
+                        <li><a href="#">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Confidentialité</a></li>
+                        <li><a href="#">CGU</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mirvany. Tous droits réservés.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
