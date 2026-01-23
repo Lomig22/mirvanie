@@ -1,5 +1,5 @@
 /**
- * MIRVANY - Landing Page Scripts
+ * MIRVANIE - Landing Page Scripts
  * Premium SaaS Animation & Interactions
  */
 
@@ -370,7 +370,7 @@ addGradientHover();
  * Console branding
  */
 console.log(
-    '%c MIRVANY %c L\'expertise immobilière augmentée par l\'IA ',
+    '%c MIRVANIE %c L\'expertise immobilière augmentée par l\'IA ',
     'background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 10px 15px; font-size: 16px; font-weight: bold; border-radius: 4px 0 0 4px;',
     'background: #1F2937; color: #9CA3AF; padding: 10px 15px; font-size: 14px; border-radius: 0 4px 4px 0;'
 );
