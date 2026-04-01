@@ -374,3 +374,255 @@ console.log(
     'background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 10px 15px; font-size: 16px; font-weight: bold; border-radius: 4px 0 0 4px;',
     'background: #1F2937; color: #9CA3AF; padding: 10px 15px; font-size: 14px; border-radius: 0 4px 4px 0;'
 );
+
+/**
+ * ===================================
+ * N8N CHAT WIDGET
+ * ===================================
+ */
+
+class N8NChatWidget {
+    constructor(config = {}) {
+        this.config = {
+            webhookUrl: config.webhookUrl || 'YOUR_N8N_WEBHOOK_URL',
+            apiKey: config.apiKey || null,
+            welcomeMessage: config.welcomeMessage || 'Bonjour ! 👋 Je suis votre assistant IA immobilier. Comment puis-je vous aider aujourd\'hui ?',
+            ...config
+        };
+        
+        this.isOpen = false;
+        this.messages = [];
+        
+        this.init();
+    }
+    
+    init() {
+        this.cacheElements();
+        this.attachEventListeners();
+        this.loadChatHistory();
+    }
+    
+    cacheElements() {
+        this.chatToggle = document.getElementById('chat-toggle');
+        this.chatWindow = document.getElementById('chat-window');
+        this.chatMinimize = document.getElementById('chat-minimize');
+        this.chatForm = document.getElementById('chat-form');
+        this.chatInput = document.getElementById('chat-input');
+        this.chatMessages = document.getElementById('chat-messages');
+        this.chatBadge = document.getElementById('chat-badge');
+    }
+    
+    attachEventListeners() {
+        this.chatToggle.addEventListener('click', () => this.toggleChat());
+        this.chatMinimize.addEventListener('click', () => this.closeChat());
+        this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
+        
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && 
+                !this.chatWindow.contains(e.target) && 
+                !this.chatToggle.contains(e.target)) {
+                this.closeChat();
+            }
+        });
+    }
+    
+    toggleChat() {
+        if (this.isOpen) {
+            this.closeChat();
+        } else {
+            this.openChat();
+        }
+    }
+    
+    openChat() {
+        this.isOpen = true;
+        this.chatToggle.classList.add('active');
+        this.chatWindow.classList.add('active');
+        this.chatBadge.classList.add('hidden');
+        this.chatInput.focus();
+    }
+    
+    closeChat() {
+        this.isOpen = false;
+        this.chatToggle.classList.remove('active');
+        this.chatWindow.classList.remove('active');
+    }
+    
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        const message = this.chatInput.value.trim();
+        if (!message) return;
+        
+        this.addMessage(message, 'user');
+        this.chatInput.value = '';
+        
+        this.showTypingIndicator();
+        
+        try {
+            const response = await this.sendToN8N(message);
+            this.hideTypingIndicator();
+            this.addMessage(response, 'ai');
+        } catch (error) {
+            this.hideTypingIndicator();
+            this.addMessage('Désolé, une erreur s\'est produite. Veuillez réessayer.', 'ai');
+            console.error('N8N Chat Error:', error);
+        }
+        
+        this.saveChatHistory();
+    }
+    
+    async sendToN8N(message) {
+        if (this.config.webhookUrl === 'YOUR_N8N_WEBHOOK_URL') {
+            return this.getMockResponse(message);
+        }
+        
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+        
+        if (this.config.apiKey) {
+            headers['Authorization'] = `Bearer ${this.config.apiKey}`;
+        }
+        
+        const response = await fetch(this.config.webhookUrl, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                chatInput: message,
+                sessionId: this.getSessionId()
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data.output || data.response || data.message || data.text || 'Réponse reçue';
+    }
+    
+    getMockResponse(message) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const responses = [
+                    'Je peux vous aider avec l\'estimation de votre bien immobilier. Pouvez-vous me donner plus de détails sur votre propriété ?',
+                    'Pour une analyse précise, j\'aurais besoin de connaître la localisation, la surface et le type de bien.',
+                    'Excellente question ! Laissez-moi analyser cela pour vous...',
+                    'D\'après les données du marché, je peux vous fournir une estimation détaillée. Quelle est l\'adresse du bien ?'
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                resolve(randomResponse);
+            }, 1500);
+        });
+    }
+    
+    addMessage(text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message-${type}`;
+        
+        const ouestLogo = `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="#1AABAA"/><circle cx="50" cy="50" r="38" stroke="white" stroke-width="8" fill="none" stroke-dasharray="210 30" stroke-dashoffset="-8" stroke-linecap="round"/><circle cx="50" cy="50" r="25" stroke="white" stroke-width="7" fill="none" stroke-dasharray="135 25" stroke-dashoffset="-6" stroke-linecap="round"/><circle cx="50" cy="50" r="12" stroke="white" stroke-width="6" fill="none" stroke-dasharray="60 18" stroke-dashoffset="-5" stroke-linecap="round"/><circle cx="73" cy="22" r="9" fill="#E8178A"/></svg>`;
+
+        if (type === 'ai') {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${ouestLogo}</div>
+                <div class="message-content">
+                    <p>${this.escapeHtml(text)}</p>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div class="message-content">
+                    <p>${this.escapeHtml(text)}</p>
+                </div>
+            `;
+        }
+        
+        this.chatMessages.appendChild(messageDiv);
+        this.scrollToBottom();
+        
+        this.messages.push({ text, type, timestamp: Date.now() });
+    }
+    
+    showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'chat-message-ai typing-message';
+        typingDiv.innerHTML = `
+            <div class="message-avatar">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="#1AABAA"/><circle cx="50" cy="50" r="38" stroke="white" stroke-width="8" fill="none" stroke-dasharray="210 30" stroke-dashoffset="-8" stroke-linecap="round"/><circle cx="50" cy="50" r="25" stroke="white" stroke-width="7" fill="none" stroke-dasharray="135 25" stroke-dashoffset="-6" stroke-linecap="round"/><circle cx="50" cy="50" r="12" stroke="white" stroke-width="6" fill="none" stroke-dasharray="60 18" stroke-dashoffset="-5" stroke-linecap="round"/><circle cx="73" cy="22" r="9" fill="#E8178A"/></svg>
+            </div>
+            <div class="message-content">
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        `;
+        
+        this.chatMessages.appendChild(typingDiv);
+        this.scrollToBottom();
+    }
+    
+    hideTypingIndicator() {
+        const typingMessage = this.chatMessages.querySelector('.typing-message');
+        if (typingMessage) {
+            typingMessage.remove();
+        }
+    }
+    
+    scrollToBottom() {
+        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    }
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    getSessionId() {
+        let sessionId = localStorage.getItem('n8n_chat_session');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('n8n_chat_session', sessionId);
+        }
+        return sessionId;
+    }
+    
+    saveChatHistory() {
+        try {
+            localStorage.setItem('n8n_chat_history', JSON.stringify(this.messages));
+        } catch (e) {
+            console.warn('Could not save chat history:', e);
+        }
+    }
+    
+    loadChatHistory() {
+        try {
+            const history = localStorage.getItem('n8n_chat_history');
+            if (history) {
+                this.messages = JSON.parse(history);
+                const recentMessages = this.messages.slice(-10);
+                
+                this.chatMessages.innerHTML = '';
+                
+                this.addMessage(this.config.welcomeMessage, 'ai');
+            }
+        } catch (e) {
+            console.warn('Could not load chat history:', e);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    window.mirvanieChat = new N8NChatWidget({
+        webhookUrl: 'https://n8n.srv1525833.hstgr.cloud/webhook/d835658f-ebb3-438f-8e82-09dcea8f2e67/chat',
+        apiKey: null,
+        welcomeMessage: 'Bonjour ! 👋 Je suis l\'assistant IA Ouestelio. Comment puis-je vous aider aujourd\'hui ?'
+    });
+});

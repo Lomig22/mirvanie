@@ -676,6 +676,84 @@
         </div>
     </footer>
 
+    <!-- Chat Widget N8N -->
+    <div id="n8n-chat-widget" class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle" aria-label="Ouvrir le chat">
+            <svg class="chat-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:42px;height:42px;">
+                <circle cx="50" cy="50" r="38" stroke="white" stroke-width="8" fill="none" stroke-dasharray="210 30" stroke-dashoffset="-8" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="25" stroke="white" stroke-width="7" fill="none" stroke-dasharray="135 25" stroke-dashoffset="-6" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="12" stroke="white" stroke-width="6" fill="none" stroke-dasharray="60 18" stroke-dashoffset="-5" stroke-linecap="round"/>
+                <circle cx="73" cy="22" r="9" fill="#E8178A"/>
+            </svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="width:26px;height:26px;">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+            <span class="chat-badge" id="chat-badge">1</span>
+        </button>
+        
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar ouestelio-avatar">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="50" fill="#1AABAA"/>
+                            <circle cx="50" cy="50" r="38" stroke="white" stroke-width="8" fill="none" stroke-dasharray="210 30" stroke-dashoffset="-8" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="25" stroke="white" stroke-width="7" fill="none" stroke-dasharray="135 25" stroke-dashoffset="-6" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="12" stroke="white" stroke-width="6" fill="none" stroke-dasharray="60 18" stroke-dashoffset="-5" stroke-linecap="round"/>
+                            <circle cx="73" cy="22" r="9" fill="#E8178A"/>
+                        </svg>
+                    </div>
+                    <div class="chat-header-text">
+                        <h3>Ouestelio</h3>
+                        <p class="chat-status"><span class="status-dot"></span>En ligne</p>
+                    </div>
+                </div>
+                <button id="chat-minimize" class="chat-minimize" aria-label="Minimiser">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-message-ai">
+                    <div class="message-avatar ouestelio-msg-avatar">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="50" fill="#1AABAA"/>
+                            <circle cx="50" cy="50" r="38" stroke="white" stroke-width="8" fill="none" stroke-dasharray="210 30" stroke-dashoffset="-8" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="25" stroke="white" stroke-width="7" fill="none" stroke-dasharray="135 25" stroke-dashoffset="-6" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="12" stroke="white" stroke-width="6" fill="none" stroke-dasharray="60 18" stroke-dashoffset="-5" stroke-linecap="round"/>
+                            <circle cx="73" cy="22" r="9" fill="#E8178A"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Bonjour ! 👋 Je suis votre assistant IA immobilier. Comment puis-je vous aider aujourd'hui ?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <form id="chat-form" class="chat-form">
+                    <input 
+                        type="text" 
+                        id="chat-input" 
+                        class="chat-input" 
+                        placeholder="Posez votre question immobilière..."
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="chat-send" aria-label="Envoyer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="chat-footer-text">
+                    Propulsé par <strong>Ouestelio</strong> AI
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>
