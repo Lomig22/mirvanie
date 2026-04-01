@@ -527,7 +527,7 @@ class N8NChatWidget {
             messageDiv.innerHTML = `
                 <div class="message-avatar">${ouestLogo}</div>
                 <div class="message-content">
-                    <p>${this.escapeHtml(text)}</p>
+                    <p>${this.formatMessage(text)}</p>
                 </div>
             `;
         } else {
@@ -583,6 +583,26 @@ class N8NChatWidget {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+    
+    formatMessage(text) {
+        let escaped = this.escapeHtml(text);
+        
+        escaped = escaped.replace(
+            /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        
+        escaped = escaped.replace(
+            /(?<!href=")(https?:\/\/[^\s<]+)/g,
+            '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        
+        escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        
+        escaped = escaped.replace(/\n/g, '<br>');
+        
+        return escaped;
     }
     
     getSessionId() {

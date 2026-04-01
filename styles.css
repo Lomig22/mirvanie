@@ -1805,6 +1805,27 @@ html {
     color: var(--gray-900);
 }
 
+.message-content a {
+    color: #1AABAA;
+    text-decoration: underline;
+    font-weight: 500;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.message-content a:hover {
+    color: #0d8f8e;
+}
+
+.chat-message-user .message-content a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+}
+
+.chat-message-user .message-content a:hover {
+    color: #ffffff;
+}
+
 .chat-message-user .message-content strong {
     color: white;
 }
