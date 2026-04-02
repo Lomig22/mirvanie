@@ -489,6 +489,7 @@ class N8NChatWidget {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({
+                action: 'sendMessage',
                 chatInput: message,
                 sessionId: this.getSessionId()
             })
