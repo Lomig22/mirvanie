@@ -491,7 +491,9 @@ class N8NChatWidget {
             body: JSON.stringify({
                 action: 'sendMessage',
                 chatInput: message,
-                sessionId: this.getSessionId()
+                sessionId: this.getSessionId(),
+                systemPrompt: "Tu es l'assistant IA de Ouestelio. Utilise uniquement la base de connaissances ouestelio_knowledge_base pour répondre aux questions. Sois précis, professionnel et base toutes tes réponses sur les informations disponibles dans cette base.",
+                knowledgeBase: "ouestelio_knowledge_base"
             })
         });
         
